@@ -1,9 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
-    int n1, n2, arr1[103], arr2[103];
+    int n1, n2;
+    int *arr1, *arr2;
 
     scanf("%d %d", &n1, &n2);
+
+    arr1 = (int*)malloc(sizeof(int) * n1);
+    arr2 = (int*)malloc(sizeof(int) * n2);
 
     for(int i = 0; i < n1; i++) {
         scanf("%d", &arr1[i]);

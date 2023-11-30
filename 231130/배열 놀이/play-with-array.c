@@ -1,42 +1,55 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+int n;
+
+void proc(int a, int b, int *p) {
+    int i;
+    if(a == 1) {
+        printf("%d\n", p[b - 1]);
+    }
+    else if(a == 2) {
+        for(i = 0; i < n; i++) {
+            if(p[i] == b) {
+                printf("%d\n", i + 1);
+                return;
+            }
+        }
+
+        if(i == n) {
+            printf("0\n");
+        }
+    }
+    else {
+        int c;
+        scanf("%d", &c);
+
+        for(i = b; i <= c; i++) {
+            printf("%d ", p[i - 1]);
+        }
+        printf("\n");
+    }
+}
 
 int main() {
-    int n, m, arr[103], a, b, r;
+    int m, a, b, i;
+    int *p;
 
     scanf("%d %d", &n, &m);
 
-    for(int i = 1; i <= n; i++) {
-        scanf("%d", &arr[i]);
+    p = (int *) malloc(sizeof(int) * n);
+
+    for(i = 0; i < n; i++) {
+        scanf("%d", &p[i]);
     }
 
-    for(int i = 0; i < m; i++) {
-        scanf("%d", &r);
+    for(i = 0; i < m; i++) {
+        scanf("%d %d", &a, &b);
 
-        if(r == 1) {
-            scanf("%d", &a);
-            printf("%d\n", arr[a]);
-        }
-        else if(r == 2) {
-            scanf("%d", &a);
-            int j;
-            for(j = 1; j <= n; j++) {
-                if(arr[j] == a) {
-                    printf("%d\n", j);
-                    break;
-                }
-            }
-
-            if(j == n + 1) printf("0\n");
-        }  
-        else {
-            scanf("%d %d", &a, &b);
-
-            for(int j = a; j <= b; j++) {
-                printf("%d ", arr[j]);
-            }
-            printf("\n");
-        }
+        proc(a, b, p);
     }
+
+    free(p);
 
     return 0;
 }

@@ -9,11 +9,11 @@ int main() {
 
     arr = (int*)malloc(sizeof(int) * n);
 
-    for(i = 1; i <= n; i++) {
+    for(i = 0; i <= ; i++) {
         scanf("%d", &arr[i]);
     }
 
-    for(int i = 1; i <= n; i++) {
+    for(i = 0; i < n; i++) {
         if(arr[i] == 2) res++;
 
         if(res == 3) {

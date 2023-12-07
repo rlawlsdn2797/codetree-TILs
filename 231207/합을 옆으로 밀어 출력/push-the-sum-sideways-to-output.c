@@ -3,39 +3,18 @@
 
 int main() {
     int n, res = 0, s, i, len = 0, tmp;
-    int *arr;
+    char result[12];
 
     scanf("%d", &n);
 
     for(i = 1; i <= n; i++) {
         scanf("%d", &s);
-
         res += s;
     }
 
-    tmp = res;
+    sprintf(result, "%d", res);
 
-    len = 0;
-    while(tmp != 0) {
-        tmp /= 10;
-        len++;
-    }
-
-    arr = (int*)malloc(sizeof(int) * len);
-
-    i = 1;
-    tmp = res;
-    while(tmp != 0) {
-        arr[i] = tmp % 10;
-        tmp /= 10;
-        i++;
-    }
-
-    arr[0] = arr[i-1];
-
-    for(i = len - 1; i >= 0; i--) {
-        printf("%d", arr[i]);
-    }
+    printf("%s%c", result + 1, result[0]);
 
     return 0;
 }

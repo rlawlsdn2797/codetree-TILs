@@ -9,7 +9,7 @@ int main() {
 
     arr = (int*)malloc(sizeof(int) * n);
 
-    for(i = 0; i <= ; i++) {
+    for(i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
 
@@ -17,7 +17,7 @@ int main() {
         if(arr[i] == 2) res++;
 
         if(res == 3) {
-            printf("%d ", i);
+            printf("%d ", i + 1);
             break;
         }
     }

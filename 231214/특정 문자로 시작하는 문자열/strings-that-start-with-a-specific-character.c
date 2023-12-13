@@ -2,7 +2,7 @@
 #include <string.h>
 
 int main() {
-    int n, i, sum = 0, j, res = 0, f, b;
+    int n, i, sum = 0, j, res = 0;
     char str[23][23], a;
 
     scanf("%d", &n);
@@ -12,21 +12,10 @@ int main() {
     scanf(" %c", &a);
 
     for(i = 1; i <= n; i++) {
-        f = 0;
-        b = 0;
-
-
-        for(j = 0; j < strlen(str[i]); j++) {
-            b++;
-            if(str[i][j] == a) {
-                f = 1;
+            if(str[i][0] == a) {
+                res++;
+                sum += strlen(str[i]);
             }
-        }
-
-        if(f == 1) {
-            res++;
-            sum += b;
-        }
     }
 
     printf("%d %.2f", res, (float)sum / res);
